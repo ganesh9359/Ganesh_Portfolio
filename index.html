@@ -760,6 +760,21 @@
             align-items: end;
         }
 
+        .project-kicker,
+        .repo-kicker,
+        .skills-kicker {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 16px;
+            border-radius: 999px;
+            font-size: 0.88rem;
+            letter-spacing: 0.18em;
+            color: #8a5200;
+            background: rgba(240, 164, 40, 0.16);
+            border: 1px solid rgba(240, 164, 40, 0.34);
+            box-shadow: 0 12px 28px rgba(240, 164, 40, 0.12);
+        }
+
         .button-muted {
             color: var(--ink);
             border: 1px solid rgba(21, 26, 34, 0.1);
@@ -830,42 +845,122 @@
 
         .skills-layout {
             display: grid;
-            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-            gap: 54px;
-            margin-top: 46px;
+            grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
+            gap: 56px;
+            align-items: start;
+            margin-top: 34px;
+        }
+
+        .skills-intro .section-title {
+            max-width: 12ch;
+        }
+
+        .skills-intro .section-copy {
+            max-width: 33rem;
+        }
+
+        .skills-summary {
+            display: grid;
+            gap: 18px;
+            margin-top: 32px;
+        }
+
+        .skills-summary-item {
+            padding-top: 16px;
+            border-top: 1px solid var(--line);
+        }
+
+        .skills-summary-item span {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(21, 26, 34, 0.48);
+        }
+
+        .skills-summary-item strong {
+            display: block;
+            margin-top: 8px;
+            font-size: 1.02rem;
+            line-height: 1.6;
         }
 
         .skills-columns {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 30px 28px;
+            gap: 30px;
         }
 
         .skills-group {
-            padding-top: 18px;
+            padding-top: 22px;
             border-top: 1px solid var(--line);
         }
 
         .skills-group h3 {
-            margin: 0 0 16px;
-            font-size: 1.08rem;
+            margin: 0 0 18px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.28rem;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
         }
 
-        .chip-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .skills-lines {
+            display: grid;
+            gap: 18px;
         }
 
-        .details-list {
-            margin-top: 0;
+        .skill-line {
+            display: grid;
+            grid-template-columns: 120px minmax(0, 1fr);
+            gap: 18px;
+            align-items: start;
         }
 
-        .details-list a {
+        .skill-line-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(21, 26, 34, 0.48);
+        }
+
+        .skill-line p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.72;
+        }
+
+        .credentials-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .credentials-list li {
+            margin: 0;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(21, 26, 34, 0.08);
+        }
+
+        .credentials-list li:last-child {
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+
+        .credentials-list strong,
+        .credentials-list a {
+            color: var(--ink);
             font-weight: 600;
         }
 
-        .details-list a:hover {
+        .credentials-list span {
+            display: block;
+            margin-top: 6px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .credentials-list a:hover {
             color: var(--amber);
         }
 
@@ -1129,8 +1224,9 @@
                 grid-template-columns: 1fr;
             }
 
-            .skills-columns {
+            .skill-line {
                 grid-template-columns: 1fr;
+                gap: 8px;
             }
         }
 
@@ -1244,9 +1340,7 @@
                         <a class="button button-secondary" href="#projects">View Projects</a>
                         <a
                             class="button button-secondary"
-                            href="https://mail.google.com/mail/?view=cm&fs=1&to=ganeshsuryawanshij@gmail.com&su=Interview%20Opportunity%20for%20Ganesh&body=Hello%20Ganesh%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%20regarding%20an%20opportunity.%0A%0AThanks%2C"
-                            target="_blank"
-                            rel="noopener"
+                            href="mailto:ganeshsuryawanshij@gmail.com?subject=Interview%20Opportunity%20for%20Ganesh&body=Hello%20Ganesh%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%20regarding%20an%20opportunity.%0A%0AThanks%2C"
                         >
                             Email Me
                         </a>
@@ -1287,8 +1381,7 @@
         </section>
 
         <section class="section-shell compact-top" id="about">
-            <p class="section-kicker" data-reveal>Recruiter Snapshot</p>
-            <h2 class="section-title" data-reveal>Backend-first thinking with enough frontend range to ship the whole product.</h2>
+            <h2 class="section-title" data-reveal>About</h2>
 
             <div class="snapshot-grid">
                 <div class="snapshot-copy" data-reveal>
@@ -1346,11 +1439,10 @@
         </section>
 
         <section class="section-shell" id="projects">
-            <p class="section-kicker" data-reveal>Featured Projects</p>
-            <h2 class="section-title" data-reveal>Selected builds that show how I think from backend to interface.</h2>
+            <p class="section-kicker project-kicker" data-reveal>Featured Projects</p>
+            <h2 class="section-title" data-reveal>Selected Work</h2>
             <p class="section-copy" data-reveal>
-                These projects highlight the mix of Java engineering, integration work, UI delivery,
-                and product thinking that I want to bring into a strong full-time role.
+                Projects that highlight backend problem solving, full stack delivery, and product-facing implementation.
             </p>
 
             <div class="projects-wrap">
@@ -1463,7 +1555,7 @@
                         <div class="project-media-frame interface-frame">
                             <img
                                 class="interface-image"
-                                src="Weather.PNG"
+                                src="Weather.png"
                                 alt="Preview of the Skycast weather dashboard with current conditions, hourly outlook, search, and location-aware forecast browsing"
                             >
                         </div>
@@ -1518,13 +1610,11 @@
         <section class="section-shell repo-section" id="more-projects">
             <div class="repo-header">
                 <div data-reveal>
-                    <p class="section-kicker">More Projects</p>
-                    <h2 class="section-title">Explore the rest of my GitHub work beyond the featured case studies.</h2>
+                    <p class="section-kicker repo-kicker">More Projects</p>
+                    <h2 class="section-title">GitHub Projects</h2>
                     <p class="section-copy">
-                        These repositories show the wider range of my practice across Java,
-                        full stack builds, servlet work, CLI applications, and smaller coding
-                        experiments. Recruiters can use this section to jump directly into the rest
-                        of my public work.
+                        Additional repositories across Java, servlet-based web apps, frontend practice,
+                        and smaller projects that show consistency beyond the featured work.
                     </p>
                 </div>
 
@@ -1715,60 +1805,73 @@
         </section>
 
         <section class="section-shell skills-section" id="skills">
-            <p class="section-kicker" data-reveal>Stack And Credentials</p>
-            <h2 class="section-title" data-reveal>The tools I reach for and the strengths I want to keep sharpening.</h2>
+            <p class="section-kicker skills-kicker" data-reveal>Skills and Certifications</p>
 
             <div class="skills-layout">
-                <div data-reveal>
+                <div class="skills-intro" data-reveal>
+                    <h2 class="section-title">Technical Profile</h2>
                     <p class="section-copy">
-                        I am strongest when solving backend problems in Java, but I am equally happy
-                        owning the pieces around them: UI flows, database structure, API consumption,
-                        and delivery polish.
+                        Strongest in Java backend development, with hands-on full stack delivery
+                        across APIs, databases, authentication, testing, and responsive frontend work.
                     </p>
+
+                    <div class="skills-summary">
+                        <div class="skills-summary-item">
+                            <span>Primary Focus</span>
+                            <strong>Java, Spring Boot, REST APIs, MySQL, Redis, and secure backend flows.</strong>
+                        </div>
+                        <div class="skills-summary-item">
+                            <span>Frontend Range</span>
+                            <strong>React, Angular, JavaScript, HTML, CSS, and UI work needed to ship complete features.</strong>
+                        </div>
+                        <div class="skills-summary-item">
+                            <span>Recent Proof</span>
+                            <strong>Java Full Stack Developer Intern at Pratinik Infotech, building APIs, integrations, and tested features.</strong>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="skills-columns">
                     <div class="skills-group" data-reveal>
-                        <h3>Core backend stack</h3>
-                        <div class="chip-list">
-                            <span class="tag">Java 17/21</span>
-                            <span class="tag">Spring Boot</span>
-                            <span class="tag">Microservices</span>
-                            <span class="tag">Hibernate</span>
-                            <span class="tag">JPA</span>
-                            <span class="tag">MySQL</span>
-                            <span class="tag">Redis</span>
-                            <span class="tag">REST APIs</span>
-                            <span class="tag">Spring Security</span>
+                        <h3>Core Stack</h3>
+                        <div class="skills-lines">
+                            <div class="skill-line">
+                                <span class="skill-line-label">Backend</span>
+                                <p>Java 17/21, Spring Boot, Hibernate, JPA, REST APIs, and microservice-oriented application development.</p>
+                            </div>
+                            <div class="skill-line">
+                                <span class="skill-line-label">Data and Security</span>
+                                <p>MySQL, Redis, Spring Security, JWT authentication, query optimization, and database-backed feature development.</p>
+                            </div>
+                            <div class="skill-line">
+                                <span class="skill-line-label">Frontend</span>
+                                <p>React, Angular, JavaScript, HTML, CSS, Tailwind CSS, and responsive interface implementation.</p>
+                            </div>
+                            <div class="skill-line">
+                                <span class="skill-line-label">Tools</span>
+                                <p>Git, Maven, Postman, JUnit, Mockito, API testing, debugging, and Agile team delivery.</p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="skills-group" data-reveal>
-                        <h3>Frontend and tooling</h3>
-                        <div class="chip-list">
-                            <span class="tag">React</span>
-                            <span class="tag">Angular</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">Tailwind CSS</span>
-                            <span class="tag">Git</span>
-                            <span class="tag">Maven</span>
-                            <span class="tag">Postman</span>
-                            <span class="tag">JUnit</span>
-                            <span class="tag">Mockito</span>
-                            <span class="tag">Responsive Design</span>
-                        </div>
-                    </div>
-
-                    <div class="skills-group" data-reveal>
-                        <h3>Credentials</h3>
-                        <ul class="details-list">
-                            <li>MCA, Dr. D. Y. Patil Institute of Management and Research, Pune, 2026</li>
+                        <h3>Education and Certifications</h3>
+                        <ul class="credentials-list">
                             <li>
-                                <a href="Java_developer_Certificate.pdf" target="_blank" rel="noopener">
-                                    Java Developer Certification
+                                <strong>MCA</strong>
+                                <span>Dr. D. Y. Patil Institute of Management and Research, Pune - 2026</span>
+                            </li>
+                            <li>
+                                <a href="NPTEL_Programming_in_Java_Certificate.pdf" target="_blank" rel="noopener">
+                                    NPTEL Programming in Java Certification
                                 </a>
+                                <span>12 week course completed in Jan-Apr 2026.</span>
+                            </li>
+                            <li>
+                                <a href="NPTEL_Cloud_Computing_Certificate.pdf" target="_blank" rel="noopener">
+                                    NPTEL Cloud Computing Certification
+                                </a>
+                                <span>12 week course completed in Jan-Apr 2026.</span>
                             </li>
                             <li>
                                 <a href="OracleDatabaseCertification.jpg" target="_blank" rel="noopener">
@@ -1776,19 +1879,15 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="Java_developer_Certificate.pdf" target="_blank" rel="noopener">
+                                    Java Developer Certification
+                                </a>
+                            </li>
+                            <li>
                                 <a href="HtmlCssJavascript.jpg" target="_blank" rel="noopener">
                                     HTML, CSS, and JavaScript Certification
                                 </a>
                             </li>
-                        </ul>
-                    </div>
-
-                    <div class="skills-group" data-reveal>
-                        <h3>How I contribute</h3>
-                        <ul class="details-list">
-                            <li>Translate requirements into APIs, schema decisions, and clean feature flows.</li>
-                            <li>Build interfaces that help users move through the product without confusion.</li>
-                            <li>Stay comfortable moving between backend logic, integration details, and final polish.</li>
                         </ul>
                     </div>
                 </div>
@@ -1799,7 +1898,7 @@
             <div class="section-shell cta-shell">
                 <div class="cta-copy" data-reveal>
                     <p class="section-kicker">Let&apos;s Connect</p>
-                    <h2 class="section-title">If you are hiring for a Java backend or full stack role, I would love to talk.</h2>
+                    <h2 class="section-title">Open to Java backend and full stack opportunities.</h2>
                     <p class="section-copy">
                         The fastest way to reach me is email or LinkedIn. I am based in Pune and open
                         to discussing full-time opportunities, project conversations, and technical
@@ -1817,11 +1916,9 @@
                         </a>
                         <a
                             class="button button-light"
-                            href="https://www.linkedin.com/in/ganesh-suryawanshi-691856198/"
-                            target="_blank"
-                            rel="noopener"
+                            href="mailto:ganeshsuryawanshij@gmail.com?subject=Interview%20Opportunity%20for%20Ganesh&body=Hello%20Ganesh%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%20regarding%20an%20opportunity.%0A%0AThanks%2C"
                         >
-                            LinkedIn
+                            Email
                         </a>
                         <a
                             class="button button-light"
@@ -1837,11 +1934,7 @@
                 <div class="contact-grid" data-reveal>
                     <div>
                         <small>Email</small>
-                        <a
-                            href="https://mail.google.com/mail/?view=cm&fs=1&to=ganeshsuryawanshij@gmail.com&su=Interview%20Opportunity%20for%20Ganesh&body=Hello%20Ganesh%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%20regarding%20an%20opportunity.%0A%0AThanks%2C"
-                            target="_blank"
-                            rel="noopener"
-                        >
+                        <a href="mailto:ganeshsuryawanshij@gmail.com?subject=Interview%20Opportunity%20for%20Ganesh&body=Hello%20Ganesh%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%20regarding%20an%20opportunity.%0A%0AThanks%2C">
                             ganeshsuryawanshij@gmail.com
                         </a>
                     </div>
@@ -1876,6 +1969,7 @@
         const mobileNav = document.getElementById("mobile-nav");
         const parallaxItems = Array.from(document.querySelectorAll("[data-parallax]"));
         const revealItems = Array.from(document.querySelectorAll("[data-reveal]"));
+        const emailLinks = Array.from(document.querySelectorAll('a[href^="mailto:"]'));
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         const setHeaderState = () => {
@@ -1910,6 +2004,62 @@
             });
         };
 
+        const buildGmailComposeUrl = (mailtoHref) => {
+            const mailtoUrl = new URL(mailtoHref);
+            const params = new URLSearchParams({
+                view: "cm",
+                fs: "1",
+                to: mailtoUrl.pathname,
+                su: mailtoUrl.searchParams.get("subject") || "",
+                body: mailtoUrl.searchParams.get("body") || ""
+            });
+
+            return `https://mail.google.com/mail/?${params.toString()}`;
+        };
+
+        const handleEmailLinkClick = (event) => {
+            if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+                return;
+            }
+
+            const mailtoHref = event.currentTarget.getAttribute("href");
+            if (!mailtoHref) {
+                return;
+            }
+
+            event.preventDefault();
+
+            const fallbackUrl = buildGmailComposeUrl(mailtoHref);
+            let fallbackTimer = null;
+
+            const cleanupFallback = () => {
+                if (fallbackTimer !== null) {
+                    window.clearTimeout(fallbackTimer);
+                    fallbackTimer = null;
+                }
+
+                document.removeEventListener("visibilitychange", handleVisibilityChange);
+            };
+
+            const handleVisibilityChange = () => {
+                if (document.visibilityState === "hidden") {
+                    cleanupFallback();
+                }
+            };
+
+            fallbackTimer = window.setTimeout(() => {
+                if (document.visibilityState === "visible" && document.hasFocus()) {
+                    window.location.href = fallbackUrl;
+                }
+
+                cleanupFallback();
+            }, 900);
+
+            window.addEventListener("blur", cleanupFallback, { once: true });
+            document.addEventListener("visibilitychange", handleVisibilityChange);
+            window.location.href = mailtoHref;
+        };
+
         if (reduceMotion) {
             revealItems.forEach((item) => item.classList.add("is-visible"));
         } else {
@@ -1935,6 +2085,10 @@
 
         document.querySelectorAll(".mobile-nav a").forEach((link) => {
             link.addEventListener("click", closeMenu);
+        });
+
+        emailLinks.forEach((link) => {
+            link.addEventListener("click", handleEmailLinkClick);
         });
 
         document.addEventListener("keydown", (event) => {
